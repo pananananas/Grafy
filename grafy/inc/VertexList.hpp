@@ -9,13 +9,15 @@ class VertexList {              // Wierzchołek do listy sąsiedztwa
 
 public:
     VertexList *adress;
-    int **Wartosc;
+    int Wartosc;
     
     
     
     VertexList(){};
     VertexList(int **x){ Wartosc = x; };
     void SetAdress(VertexList *ad){ adress = ad; };
+//    EdgeList IncidentEdges();  // return an edge list of the edges
+    bool IsAdjancent(VertexList v); // test whether v and u are adjencent
     ~VertexList(){};
 };
 

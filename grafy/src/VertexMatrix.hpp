@@ -7,19 +7,25 @@
 class VertexMatrix {            // Wierzchołek do macierzy sąsiedztwa
 
 public:
-    int ID;
-    VertexMatrix *adress;
-    int **Wartosc;
+    int           ID;
+    int           Wartosc;
+    VertexMatrix *Adress;
+    
     
     
     
     VertexMatrix(){};
     VertexMatrix(int x);
     void SetAdress(VertexMatrix *ad);
+    
+    
+    
+    
+    
     ~VertexMatrix(){};
     
 
 };
-
+//std::ostream& operator * (std::ostream &strm){ strm << Wartosc; return strm; };
 
 #endif /* VertexMatrix_hpp */

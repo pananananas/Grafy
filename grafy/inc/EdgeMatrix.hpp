@@ -6,10 +6,10 @@ template <class Typ>
 class EdgeMatrix {
 
 public:
-    Typ          **Wartosc;
-    EdgeMatrix    *Adress;
-    VertexMatrix   Start;
-    VertexMatrix   Koniec;
+    Typ           Wartosc;
+    EdgeMatrix   *Adres;
+    VertexMatrix  Start;
+    VertexMatrix  Koniec;
     
     
     
