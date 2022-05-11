@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		25EE88FB2828351600176E13 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EE88FA2828351600176E13 /* main.cpp */; };
+		25EE8906282835F200176E13 /* VertexList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EE8904282835F200176E13 /* VertexList.cpp */; };
+		25EE8909282835F800176E13 /* EdgeList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EE8907282835F800176E13 /* EdgeList.cpp */; };
+		25EE890C282835FE00176E13 /* IncidentList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EE890A282835FE00176E13 /* IncidentList.cpp */; };
+		25EE890F2828360300176E13 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EE890D2828360300176E13 /* Matrix.cpp */; };
+		25EE89122828360D00176E13 /* Algotithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EE89102828360D00176E13 /* Algotithm.cpp */; };
+		25EE8915282BC3FE00176E13 /* VertexMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EE8913282BC3FE00176E13 /* VertexMatrix.cpp */; };
+		25EE8918282BC41200176E13 /* EdgeMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EE8916282BC41200176E13 /* EdgeMatrix.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +32,20 @@
 /* Begin PBXFileReference section */
 		25EE88F72828351600176E13 /* grafy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = grafy; sourceTree = BUILT_PRODUCTS_DIR; };
 		25EE88FA2828351600176E13 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		25EE8904282835F200176E13 /* VertexList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexList.cpp; sourceTree = SOURCE_ROOT; };
+		25EE8905282835F200176E13 /* VertexList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = VertexList.hpp; path = grafy/inc/VertexList.hpp; sourceTree = SOURCE_ROOT; };
+		25EE8907282835F800176E13 /* EdgeList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeList.cpp; sourceTree = "<group>"; };
+		25EE8908282835F800176E13 /* EdgeList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EdgeList.hpp; sourceTree = "<group>"; };
+		25EE890A282835FE00176E13 /* IncidentList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IncidentList.cpp; sourceTree = "<group>"; };
+		25EE890B282835FE00176E13 /* IncidentList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IncidentList.hpp; sourceTree = "<group>"; };
+		25EE890D2828360300176E13 /* Matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
+		25EE890E2828360300176E13 /* Matrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Matrix.hpp; sourceTree = "<group>"; };
+		25EE89102828360D00176E13 /* Algotithm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Algotithm.cpp; sourceTree = "<group>"; };
+		25EE89112828360D00176E13 /* Algorithm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Algorithm.hpp; sourceTree = "<group>"; };
+		25EE8913282BC3FE00176E13 /* VertexMatrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = VertexMatrix.cpp; path = grafy/src/VertexMatrix.cpp; sourceTree = SOURCE_ROOT; };
+		25EE8914282BC3FE00176E13 /* VertexMatrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = VertexMatrix.hpp; path = grafy/src/VertexMatrix.hpp; sourceTree = SOURCE_ROOT; };
+		25EE8916282BC41200176E13 /* EdgeMatrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeMatrix.cpp; sourceTree = "<group>"; };
+		25EE8917282BC41200176E13 /* EdgeMatrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EdgeMatrix.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +78,39 @@
 		25EE88F92828351600176E13 /* grafy */ = {
 			isa = PBXGroup;
 			children = (
-				25EE88FA2828351600176E13 /* main.cpp */,
+				25EE8902282835CA00176E13 /* src */,
+				25EE8903282835D200176E13 /* inc */,
 			);
 			path = grafy;
+			sourceTree = "<group>";
+		};
+		25EE8902282835CA00176E13 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				25EE88FA2828351600176E13 /* main.cpp */,
+				25EE8904282835F200176E13 /* VertexList.cpp */,
+				25EE8913282BC3FE00176E13 /* VertexMatrix.cpp */,
+				25EE8907282835F800176E13 /* EdgeList.cpp */,
+				25EE8916282BC41200176E13 /* EdgeMatrix.cpp */,
+				25EE890A282835FE00176E13 /* IncidentList.cpp */,
+				25EE890D2828360300176E13 /* Matrix.cpp */,
+				25EE89102828360D00176E13 /* Algotithm.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		25EE8903282835D200176E13 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				25EE8905282835F200176E13 /* VertexList.hpp */,
+				25EE8914282BC3FE00176E13 /* VertexMatrix.hpp */,
+				25EE8908282835F800176E13 /* EdgeList.hpp */,
+				25EE8917282BC41200176E13 /* EdgeMatrix.hpp */,
+				25EE890B282835FE00176E13 /* IncidentList.hpp */,
+				25EE890E2828360300176E13 /* Matrix.hpp */,
+				25EE89112828360D00176E13 /* Algorithm.hpp */,
+			);
+			path = inc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +170,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25EE8915282BC3FE00176E13 /* VertexMatrix.cpp in Sources */,
+				25EE8918282BC41200176E13 /* EdgeMatrix.cpp in Sources */,
+				25EE890F2828360300176E13 /* Matrix.cpp in Sources */,
 				25EE88FB2828351600176E13 /* main.cpp in Sources */,
+				25EE89122828360D00176E13 /* Algotithm.cpp in Sources */,
+				25EE8909282835F800176E13 /* EdgeList.cpp in Sources */,
+				25EE8906282835F200176E13 /* VertexList.cpp in Sources */,
+				25EE890C282835FE00176E13 /* IncidentList.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
