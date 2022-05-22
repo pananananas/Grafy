@@ -6,28 +6,25 @@
 class AdjacencyList {
 public:
  
-    struct VertexL {
+    struct VertexL  {
         
-        int             Wartosc;
-        VertexL         *Adres;
-        AdjacencyList  *List;
-        
-
+        int           Wartosc;
+        VertexL       *Adres;
+        AdjacencyList *List;
         
         VertexL() {};
         VertexL(int W, VertexL *Ad) { Wartosc = W; Adres = Ad; };
         void UpdateAdjacency(AdjacencyList  *L) { List = L; };
         void SetAdress(VertexL *ad);
         void Show ();
-        
-        ~VertexL() {};
+        ~VertexL() = default;
     };
-    struct EdgeL   {
+    struct EdgeL    {
         
-        int             Wartosc;
-        EdgeL           *Adres;
-        VertexL         *Start;
-        VertexL         *Koniec;
+        int            Wartosc;
+        EdgeL          *Adres;
+        VertexL        *Start;
+        VertexL        *Koniec;
         AdjacencyList  *List1;
         AdjacencyList  *List2;
         
@@ -37,8 +34,18 @@ public:
         void UpdateAdjacency(AdjacencyList  *L1, AdjacencyList  *L2) { List1 = L1; List2 = L2; };
         void SetAdress(EdgeL *ad);
         void Show();
-        ~EdgeL() {}
+        ~EdgeL() = default;
     };
+    struct AdjPoint {
+        
+        int   IlPolaczen;
+        EdgeL *EdgeArr[];
+        
+        AdjPoint() { IlPolaczen = 0; };
+        void UpdateEdge(EdgeL *E) { EdgeArr[IlPolaczen] = E; };
+        ~AdjPoint() = default;
+    };
+    
     
     int Rozmiar;  // Czyli ilość wierzchołków
     int Gestosc;
@@ -73,6 +80,15 @@ public:
             VertArr[i] = VertexL(rand()%Rozmiar*10, &VertArr[i]);
     
         
+        for (int i = 0; i < Rozmiar; ++i)                   // Tworzę listę i wypełniam ją Nullami
+            AdjList[i] = new EdgeL*[Rozmiar];
+//        AdjList[i] = NULL;
+        
+        for (int i = 0; i < IlKrawedzi; ++i)
+            i++;
+            
+        
+//        EdgeArr[i] = EdgeM(rand()%IlKrawedzi*10, &EdgeArr[i], &VertArr[j], &VertArr[i]);
         
         
         
@@ -96,7 +112,7 @@ public:
         }
     };
     
-    ~AdjacencyList(){};
+    ~AdjacencyList() = default;
 };
 
 

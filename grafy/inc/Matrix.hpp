@@ -8,13 +8,13 @@ struct VertexM {
     VertexM  *Adres;
     int      ID;
     
-    VertexM(){};
+    VertexM() = default;
     VertexM (int id, int W, VertexM *Ad) { Wartosc = W; ID = id; Adres = Ad; };
     void SetAdress(VertexM *ad);
     void Show();
     int  ReturnID(){ return ID; };
     
-    ~VertexM(){};
+    ~VertexM() = default;
 };
 
 
@@ -25,13 +25,13 @@ struct EdgeM {
     VertexM  *Start;
     VertexM  *Koniec;
     
-    EdgeM(){};
+    EdgeM() = default;
     EdgeM(int W, EdgeM *ad) { Wartosc = W; Adres = ad; };
     EdgeM(int W, EdgeM *ad, VertexM *w, VertexM *v){ Wartosc = W; Adres = ad; Start = w; Koniec = v; };
     void SetAdjacency(VertexM *w, VertexM *v) { Start = w; Koniec = v; };
     void SetAdress(EdgeM *ad);
     void Show();
-    ~EdgeM(){}
+    ~EdgeM() = default;
 };
 
 
@@ -112,7 +112,7 @@ public:
         }
     };
     
-    ~AdjacencyMatrix(){};
+    ~AdjacencyMatrix() = default;
 };
 
 //std::ostream& operator << (std::ostream &strm, AdjacencyMatrix M){
