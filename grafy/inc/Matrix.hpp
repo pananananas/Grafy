@@ -28,6 +28,10 @@ struct EdgeM {
     EdgeM() = default;
     EdgeM(int W, EdgeM *ad) { Wartosc = W; Adres = ad; };
     EdgeM(int W, EdgeM *ad, VertexM *w, VertexM *v) { Wartosc = W; Adres = ad; Start = w; Koniec = v; };
+    VertexM* IsOpposite(VertexM *v) {
+        if (Start == v)     return Koniec;
+        else                return Start;
+    };
     void SetAdjacency(VertexM *w, VertexM *v) { Start = w; Koniec = v; };
     void SetAdress(EdgeM *ad);
     void Show();
@@ -56,7 +60,8 @@ public:
         int KrawTmp = 0;
         int MaxIlKrawedzi = (Gestosc * Rozmiar * (Rozmiar-1)) / 2;
         
-        srand( (unsigned int) time(NULL) );
+        srand( (unsigned int) time(0)+clock() );
+        srand( (unsigned int) 999 );
         bool TrueFalse[MaxIlKrawedzi];
         for (int i = 0 ; i < MaxIlKrawedzi; ++i) {
             TrueFalse[i] = ( rand() % 100 ) < Gestosc;    // Na dany procent da 1
@@ -72,7 +77,7 @@ public:
         
         for (int i = 0; i < Rozmiar; ++i) {                 // Inicjuję rozmiar macierzy i wypełniam Nullami
             AdjMatrix[i] = new EdgeM*[Rozmiar];
-            for (int j = 0; j< Rozmiar; ++j)
+            for (int j = 0; j < Rozmiar; ++j)
                     AdjMatrix[i][j] = NULL;
         }
         
