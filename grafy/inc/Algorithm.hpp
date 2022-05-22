@@ -7,4 +7,4 @@
 
 
 
-#endif /* Algorytmy_hpp */
+#endif

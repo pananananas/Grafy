@@ -2,11 +2,11 @@
 #define EdgeMatrix_hpp
 #include "VertexMatrix.hpp"
 
-template <class Typ>
+
 class EdgeMatrix {
 
 public:
-    Typ           Wartosc;
+    int           Wartosc;
     EdgeMatrix   *Adres;
     VertexMatrix  Start;
     VertexMatrix  Koniec;

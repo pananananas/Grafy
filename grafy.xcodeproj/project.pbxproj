@@ -30,6 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		25AB60332834366E0000526F /* OutputList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OutputList.txt; sourceTree = "<group>"; };
+		25AB60342834366E0000526F /* OutputMatrix.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OutputMatrix.txt; sourceTree = "<group>"; };
 		25EE88F72828351600176E13 /* grafy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = grafy; sourceTree = BUILT_PRODUCTS_DIR; };
 		25EE88FA2828351600176E13 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		25EE8904282835F200176E13 /* VertexList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexList.cpp; sourceTree = SOURCE_ROOT; };
@@ -59,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25AB6032283435410000526F /* data */ = {
+			isa = PBXGroup;
+			children = (
+				25AB60332834366E0000526F /* OutputList.txt */,
+				25AB60342834366E0000526F /* OutputMatrix.txt */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		25EE88EE2828351600176E13 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +89,7 @@
 		25EE88F92828351600176E13 /* grafy */ = {
 			isa = PBXGroup;
 			children = (
+				25AB6032283435410000526F /* data */,
 				25EE8902282835CA00176E13 /* src */,
 				25EE8903282835D200176E13 /* inc */,
 			);
@@ -140,7 +152,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					25EE88F62828351600176E13 = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -296,6 +308,7 @@
 		25EE88FF2828351600176E13 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q6DXJ6J4G8;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -306,6 +319,7 @@
 		25EE89002828351600176E13 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q6DXJ6J4G8;
 				ENABLE_HARDENED_RUNTIME = YES;

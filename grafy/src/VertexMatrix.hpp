@@ -1,15 +1,19 @@
 #ifndef VertexMatrix_hpp
 #define VertexMatrix_hpp
+#include <iostream>
 #include <stdio.h>
 #include <fstream>
-#include <iostream>
+#include <chrono>    // Do liczenia czasu
+#include <ctime>
+#include <cmath>
+
 
 class VertexMatrix {            // Wierzchołek do macierzy sąsiedztwa
 
 public:
     int           ID;
     int           Wartosc;
-    VertexMatrix *Adress;
+    VertexMatrix *Adres;
     
     
     
@@ -26,6 +30,10 @@ public:
     
 
 };
+
+
+
+
 //std::ostream& operator * (std::ostream &strm){ strm << Wartosc; return strm; };
 
 #endif /* VertexMatrix_hpp */

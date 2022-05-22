@@ -6,7 +6,7 @@ class EdgeList {
 
 public:
     int          Wartosc;
-    EdgeList    *Adress;
+    EdgeList    *Adres;
     VertexList   Start;
     VertexList   Koniec;
     
@@ -15,6 +15,7 @@ public:
     
     EdgeList(){};
     EdgeList(EdgeList *ad, int **W, VertexList w, VertexList v);
+    
     ~EdgeList(){};
 };
 
