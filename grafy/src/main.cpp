@@ -14,14 +14,14 @@ int main() {
     
     
     AdjacencyMatrix Mac(IloscWierzcholkow[0],GestoscGrafu[0]);
-    AdjacencyMatrix Mac2(IloscWierzcholkow[0],GestoscGrafu[0]);
-//    Mac.WyswietlMacierz(std::cout);
-    
-    
-    
 //    AdjacencyMatrix Mac2(IloscWierzcholkow[0],GestoscGrafu[0]);
+    Mac.WyswietlMacierz(std::cout);
     
-//    Mac2.WyswietlMacierz(std::cout);
+    
+    
+    AdjacencyMatrix Mac2(IloscWierzcholkow[0],GestoscGrafu[0]);
+    
+    Mac2.WyswietlMacierz(std::cout);
     
     AdjacencyList List(IloscWierzcholkow[0],GestoscGrafu[0]);
     

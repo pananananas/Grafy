@@ -1,6 +1,7 @@
 #ifndef IncidentList_hpp
 #define IncidentList_hpp
 #include "EdgeList.hpp"
+#include <random>
 struct AdjPoint;
 
 class AdjacencyList {
@@ -83,11 +84,14 @@ public:
         int KrawTmp = 0;
         int MaxIlKrawedzi = (Gestosc * Rozmiar * (Rozmiar-1)) / 2;
         
-//        srand( (unsigned int) NULL );
-        srand( (unsigned int) time(0) );
+
+        std:: random_device dev;
+        std:: mt19937 rng(dev());
+        std:: uniform_int_distribution<std::mt19937::result_type> dist6(1,99999);
+        
         bool TrueFalse[MaxIlKrawedzi];
         for (int i = 0 ; i < MaxIlKrawedzi; ++i) {
-            TrueFalse[i] = ( rand() % 100 ) < Gestosc;      // Na dany procent da 1
+            TrueFalse[i] = ( dist6(rng) % 100 ) < Gestosc;      // Na dany procent da 1
             if (TrueFalse[i] == 1) ++IlKrawedzi;
         }
         
