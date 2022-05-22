@@ -6,7 +6,7 @@
 #include <chrono>    // Do liczenia czasu
 #include <ctime>
 #include <cmath>
-
+#include <cstdlib>
 //#include "IncidentList.hpp"
 
 

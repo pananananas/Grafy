@@ -1,19 +1,19 @@
 #ifndef IncidentList_hpp
 #define IncidentList_hpp
 #include "EdgeList.hpp"
-
+struct AdjPoint;
 
 class AdjacencyList {
     
     struct VertexL  {
         
-        int           Wartosc;
-        VertexL       *Adres;
-        AdjacencyList *List;
+        int       Wartosc;
+        VertexL   *Adres;
+        AdjPoint  *List;
         
         VertexL() {};
         VertexL(int W, VertexL *Ad) { Wartosc = W; Adres = Ad; };
-        void UpdateAdjacency(AdjacencyList  *L) { List = L; };
+        void UpdateAdjacency(AdjPoint  *L) { List = L; };
         void SetAdress(VertexL *ad);
         void Show ();
         ~VertexL() = default;
@@ -21,17 +21,17 @@ class AdjacencyList {
     };
     struct EdgeL    {
         
-        int            Wartosc;
-        EdgeL          *Adres;
-        VertexL        *Start;
-        VertexL        *Koniec;
-        AdjacencyList  *List1;
-        AdjacencyList  *List2;
+        int       Wartosc;
+        EdgeL     *Adres;
+        VertexL   *Start;
+        VertexL   *Koniec;
+        AdjPoint  *List1;
+        AdjPoint  *List2;
         
         EdgeL() {};
         EdgeL(int W, EdgeL *ad) { Wartosc = W; Adres = ad; };
         EdgeL(EdgeL *ad, int W, VertexL *w, VertexL *v){ Start = w; Koniec = v;Wartosc = W; Adres = ad; };
-        void UpdateAdjacency(AdjacencyList  *L1, AdjacencyList  *L2) { List1 = L1; List2 = L2; };
+        void UpdateAdjacency(AdjPoint  *L1, AdjPoint  *L2) { List1 = L1; List2 = L2; };
         void SetAdress(EdgeL *ad);
         void Show();
         ~EdgeL() = default;
@@ -40,29 +40,36 @@ class AdjacencyList {
     struct AdjPoint {
         
         int   IlPolaczen;
-        EdgeL **EdgeArr;
+        EdgeL **Edge;
         
-        AdjPoint() {
+        AdjPoint(EdgeL *E)         {
             IlPolaczen = 0;
-            this -> EdgeArr = new EdgeL*[IlPolaczen];
+            Edge[IlPolaczen] = E;
             
+//            this -> Punkty  =  new AdjPoint**[Max];
+//            Punkty[0] = AdjPoint(**E);
         };
-        void UpdateEdge(EdgeL *E) { EdgeArr[IlPolaczen] = E; IlPolaczen++; };
+        void AddPoint(EdgeL *E)    {
+            IlPolaczen++;
+            Edge[IlPolaczen] = E;
+        };
+        void UpdateEdge(EdgeL **E) { Edge = E; };
         ~AdjPoint() = default;
         
     };
     
-    int Rozmiar;  // Czyli ilość wierzchołków
+    int Rozmiar;
     int Gestosc;
     int IlKrawedzi;
-    
     VertexL  *VertArr;
     EdgeL    *EdgeArr;
-    AdjPoint **AdjList;
+    AdjPoint ***AdjList;
+    EdgeL    ***AdjList2;       // Dla testu
 
 public:
     
     AdjacencyList(int W, int G) {
+        
         Rozmiar     = W;
         Gestosc     = G;
         IlKrawedzi  = 0;
@@ -78,19 +85,19 @@ public:
         
         this -> VertArr  =  new VertexL[Rozmiar];
         this -> EdgeArr  =  new EdgeL[IlKrawedzi];
-        this -> AdjList  =  new AdjPoint*[Rozmiar];
+        this -> AdjList   =  new AdjPoint**[Rozmiar];
+        this -> AdjList2  =  new EdgeL**[Rozmiar];
         
         for (int i = 0; i < Rozmiar; ++i)                   // Tworzę listę i wypełniam ją Nullami
-            AdjList[i] = new AdjPoint[Rozmiar];
+            AdjList2[i] = new EdgeL*[Rozmiar];
             
         
-        for (int i = 0; i < MaxIlKrawedzi; ++i){
+        for (int i = 0; i < IlKrawedzi; ++i){
             if (TrueFalse[i] != 0) {     // Jest połączenie, wypełniam wierzchołki i macierz
                 EdgeArr[i] = EdgeL(rand()%IlKrawedzi*10, &EdgeArr[i]);//, &VertArr[j], &VertArr[i]);
-//                AdjList[i]->UpdateEdge(&EdgeArr[i]);
+                AdjList2[i][i] = &EdgeArr[i];
                 
-                
-            }else   AdjList[i] = NULL;
+            }else   AdjList2[i] = NULL;
         }
         
 //        for (int i = 0; i < Rozmiar; ++i)                   // Wypełniam wierzchołki
@@ -114,5 +121,20 @@ public:
 };
 
 
+//    struct AdjBody  {
+//
+//        int   IlPolaczen;
+//        AdjPoint ***Punkty;
+//
+//        AdjBody() = default; //{ IlPolaczen = 0; };
+//        AdjBody(EdgeL *E, int Max) {
+//
+//            IlPolaczen = 0;
+//            this -> Punkty  =  new AdjPoint**[Max];
+//            Punkty[0] = AdjPoint(**E);
+//        }
+////        void AddPoint();
+//        ~AdjBody() = default;
+//    };
 
 #endif

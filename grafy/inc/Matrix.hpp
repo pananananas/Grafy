@@ -31,6 +31,7 @@ struct EdgeM {
     void SetAdjacency(VertexM *w, VertexM *v) { Start = w; Koniec = v; };
     void SetAdress(EdgeM *ad);
     void Show();
+    int  ZwrocWage() { return Wartosc; };
     ~EdgeM() = default;
 };
 
@@ -43,7 +44,7 @@ class AdjacencyMatrix {
     
     VertexM  *VertArr;
     EdgeM    *EdgeArr;
-    EdgeM  ***AdjMatrix;
+    EdgeM    ***AdjMatrix;
     
 public:
     
@@ -101,6 +102,13 @@ public:
         for (int i = 0; i < Rozmiar; ++i) {
             for (int j = 0; j< Rozmiar; ++j)
                 strm << AdjMatrix[i][j] << ", ";
+            strm << std::endl;
+        }
+    };
+    void   WyswietlWage(std::ostream &strm) {
+        for (int i = 0; i < Rozmiar; ++i) {
+            for (int j = 0; j< Rozmiar; ++j)
+                strm << AdjMatrix[i][j]->ZwrocWage() << ", ";
             strm << std::endl;
         }
     };
