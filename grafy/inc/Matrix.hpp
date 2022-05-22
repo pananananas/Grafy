@@ -27,7 +27,7 @@ struct EdgeM {
     
     EdgeM() = default;
     EdgeM(int W, EdgeM *ad) { Wartosc = W; Adres = ad; };
-    EdgeM(int W, EdgeM *ad, VertexM *w, VertexM *v){ Wartosc = W; Adres = ad; Start = w; Koniec = v; };
+    EdgeM(int W, EdgeM *ad, VertexM *w, VertexM *v) { Wartosc = W; Adres = ad; Start = w; Koniec = v; };
     void SetAdjacency(VertexM *w, VertexM *v) { Start = w; Koniec = v; };
     void SetAdress(EdgeM *ad);
     void Show();
@@ -48,7 +48,7 @@ class AdjacencyMatrix {
     
 public:
     
-    AdjacencyMatrix(int W, int G)              {
+    AdjacencyMatrix(int W, int G) {
         
         Rozmiar     = W;
         Gestosc     = G;
@@ -90,11 +90,11 @@ public:
         std:: cout << " Wla: " << IlKrawedzi << std:: endl;
         std:: cout << " Max: " << MaxIlKrawedzi << std:: endl;
     };
-    bool   AreAdjacent(int i, int j)           {
+    bool   AreAdjacent(int i, int j) {
         if (AdjMatrix[i][j] != NULL)    return true;
         else                            return false;
     };
-    EdgeM* ReturnAdjacency(int i, int j)       {
+    EdgeM* ReturnAdjacency(int i, int j) {
         if (AdjMatrix[i][j] != NULL)    return AdjMatrix[i][j];
         else                            return NULL;
     };
