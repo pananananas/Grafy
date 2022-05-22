@@ -6,7 +6,7 @@
 int main() {
     
     int IloscWierzcholkow[5] {10,50,100,500,1000};
-    int GestoscGrafu[4]      {25,50,75,100};
+    int GestoscGrafu[4]      {25,50, 75,100};
     //    int IloscGrafow = 100;
     
     
@@ -21,12 +21,13 @@ int main() {
     
     AdjacencyMatrix Mac(IloscWierzcholkow[0],GestoscGrafu[0]);
     
-    Mac.WyswietlMacierz(std::cout);
+//    Mac.WyswietlMacierz(std::cout);
     
 
     
     AdjacencyList List(IloscWierzcholkow[0],GestoscGrafu[0]);
     
+    List.WyswietlListe(std::cout);
     
     PlikLista.close();
     PlikMacierz.close();

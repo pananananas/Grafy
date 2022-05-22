@@ -19,8 +19,8 @@ typedef struct adjecencyList{
 
 
 typedef struct graph{
-    int nVertices;   //number of vertices in the graph
-    int nEdges;      //number of vertices in the graph
+    int nVertices;   // number of vertices in the graph
+    int nEdges;      // number of vertices in the graph
     adjList *array;  // array of adjacency list
 }Graph;
 

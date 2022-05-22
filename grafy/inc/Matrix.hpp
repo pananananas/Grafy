@@ -36,10 +36,6 @@ struct EdgeM {
 
 
 class AdjacencyMatrix {
-public:
-    
-    //    struct VertexM;
-    //    struct EdgeM;
     
     int Rozmiar;  // Czyli ilość wierzchołków
     int Gestosc;
@@ -49,8 +45,9 @@ public:
     EdgeM    *EdgeArr;
     EdgeM  ***AdjMatrix;
     
+public:
     
-    AdjacencyMatrix(int W, int G) {
+    AdjacencyMatrix(int W, int G)              {
         
         Rozmiar     = W;
         Gestosc     = G;
@@ -77,9 +74,10 @@ public:
             for (int j = 0; j< Rozmiar; ++j)
                     AdjMatrix[i][j] = NULL;
         }
+        
         for (int i = 0; i < Rozmiar; ++i)                   // Tworzę połączenie tam gdzie powinno być
         for (int j = 0; j < Rozmiar; ++j) {
-            if (j-i >= 1 &&  TrueFalse[KrawTmp] != 0) {     // Jest połączenie, wypełniam wierzchołki i macierz
+            if (j-i >= 1 &&  TrueFalse[KrawTmp] != 0) {     // Jest połączenie, wypełniam krawedzie i macierz
                 EdgeArr[KrawTmp] = EdgeM(rand()%IlKrawedzi*10, &EdgeArr[i], &VertArr[j], &VertArr[i]);
                 AdjMatrix[i][j]  = &EdgeArr[KrawTmp];
                 AdjMatrix[j][i]  = &EdgeArr[KrawTmp];
@@ -91,39 +89,22 @@ public:
         std:: cout << " Wla: " << IlKrawedzi << std:: endl;
         std:: cout << " Max: " << MaxIlKrawedzi << std:: endl;
     };
-    
-    bool AreAdjacent(int i, int j) {
+    bool   AreAdjacent(int i, int j)           {
         if (AdjMatrix[i][j] != NULL)    return true;
         else                            return false;
     };
-    
-    EdgeM* ReturnAdjacency(int i, int j) {
+    EdgeM* ReturnAdjacency(int i, int j)       {
         if (AdjMatrix[i][j] != NULL)    return AdjMatrix[i][j];
         else                            return NULL;
     };
-    
-    void WyswietlMacierz(std::ostream &strm) {
-        
+    void   WyswietlMacierz(std::ostream &strm) {
         for (int i = 0; i < Rozmiar; ++i) {
-            
             for (int j = 0; j< Rozmiar; ++j)
                 strm << AdjMatrix[i][j] << ", ";
             strm << std::endl;
         }
     };
-    
     ~AdjacencyMatrix() = default;
 };
-
-//std::ostream& operator << (std::ostream &strm, AdjacencyMatrix M){
-//    for (int i = 0; i < 1000; ++i){
-//        for (int j = 0; j < 1000; ++j){
-//            strm << M.ReturnAdjacency(i,j) << "    ";
-//        }
-//        strm << std:: endl;
-//    }
-//    return strm;
-//}
-
 
 #endif

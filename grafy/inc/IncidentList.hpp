@@ -4,8 +4,7 @@
 
 
 class AdjacencyList {
-public:
- 
+    
     struct VertexL  {
         
         int           Wartosc;
@@ -18,6 +17,7 @@ public:
         void SetAdress(VertexL *ad);
         void Show ();
         ~VertexL() = default;
+    
     };
     struct EdgeL    {
         
@@ -35,17 +35,22 @@ public:
         void SetAdress(EdgeL *ad);
         void Show();
         ~EdgeL() = default;
+        
     };
     struct AdjPoint {
         
         int   IlPolaczen;
-        EdgeL *EdgeArr[];
+        EdgeL **EdgeArr;
         
-        AdjPoint() { IlPolaczen = 0; };
-        void UpdateEdge(EdgeL *E) { EdgeArr[IlPolaczen] = E; };
+        AdjPoint() {
+            IlPolaczen = 0;
+            this -> EdgeArr = new EdgeL*[IlPolaczen];
+            
+        };
+        void UpdateEdge(EdgeL *E) { EdgeArr[IlPolaczen] = E; IlPolaczen++; };
         ~AdjPoint() = default;
+        
     };
-    
     
     int Rozmiar;  // Czyli ilość wierzchołków
     int Gestosc;
@@ -53,12 +58,11 @@ public:
     
     VertexL  *VertArr;
     EdgeL    *EdgeArr;
-    EdgeL  ***AdjList;
-    
+    AdjPoint **AdjList;
 
+public:
     
     AdjacencyList(int W, int G) {
-        
         Rozmiar     = W;
         Gestosc     = G;
         IlKrawedzi  = 0;
@@ -68,26 +72,29 @@ public:
         srand( (unsigned int) time(NULL) );
         bool TrueFalse[MaxIlKrawedzi];
         for (int i = 0 ; i < MaxIlKrawedzi; ++i) {
-            TrueFalse[i] = ( rand() % 100 ) < Gestosc;    // Na dany procent da 1
+            TrueFalse[i] = ( rand() % 100 ) < Gestosc;      // Na dany procent da 1
             if (TrueFalse[i] == 1) ++IlKrawedzi;
         }
         
         this -> VertArr  =  new VertexL[Rozmiar];
         this -> EdgeArr  =  new EdgeL[IlKrawedzi];
-        this -> AdjList  =  new EdgeL**[Rozmiar];
-        
-        for (int i = 0; i < Rozmiar; ++i)                   // Wypełniam wierzchołki
-            VertArr[i] = VertexL(rand()%Rozmiar*10, &VertArr[i]);
-    
+        this -> AdjList  =  new AdjPoint*[Rozmiar];
         
         for (int i = 0; i < Rozmiar; ++i)                   // Tworzę listę i wypełniam ją Nullami
-            AdjList[i] = new EdgeL*[Rozmiar];
-//        AdjList[i] = NULL;
-        
-        for (int i = 0; i < IlKrawedzi; ++i)
-            i++;
+            AdjList[i] = new AdjPoint[Rozmiar];
             
         
+        for (int i = 0; i < MaxIlKrawedzi; ++i){
+            if (TrueFalse[i] != 0) {     // Jest połączenie, wypełniam wierzchołki i macierz
+                EdgeArr[i] = EdgeL(rand()%IlKrawedzi*10, &EdgeArr[i]);//, &VertArr[j], &VertArr[i]);
+//                AdjList[i]->UpdateEdge(&EdgeArr[i]);
+                
+                
+            }else   AdjList[i] = NULL;
+        }
+        
+//        for (int i = 0; i < Rozmiar; ++i)                   // Wypełniam wierzchołki
+//            VertArr[i] = VertexL(rand()%Rozmiar*10, &VertArr[i]);
 //        EdgeArr[i] = EdgeM(rand()%IlKrawedzi*10, &EdgeArr[i], &VertArr[j], &VertArr[i]);
         
         
@@ -95,23 +102,14 @@ public:
         
 
     };
-    
-    
-    bool IsAdjacent(int i) {
+    bool  IsAdjacent() {
 //        if (AdjList[i] != NULL)    return true;
-                                   return false;
+        return false;
     };
-    
-    void WyswietlListe() {
-        
-        for (int i = 0; i < Rozmiar; ++i) {
-            
-            for (int j = 0; j< Rozmiar; ++j)
-//                std::cout << AdjMatrix[i][j] << ", ";
-            std::cout << std::endl;
-        }
+    void  WyswietlListe(std::ostream &strm) {
+        for (int i = 0; i < Rozmiar; ++i)
+            strm << " " << AdjList[i] << ";\n";
     };
-    
     ~AdjacencyList() = default;
 };
 
