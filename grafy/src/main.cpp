@@ -12,7 +12,7 @@ int main() {
     AdjacencyMatrix Mac[IloscGrafow];
 
     
-    std::cout <<" Wierzchołki = " << IloscWierzcholkow[2] << std:: endl;
+    std::cout <<" Wierzchołki = " << IloscWierzcholkow[1] << std:: endl;
     std::cout <<" Gęstości = " << GestoscGrafu[1] << std:: endl << std:: endl;
     
     for (int i = 0; i < IloscGrafow; ++i)

@@ -37,11 +37,11 @@ int DijkstraM(AdjacencyMatrix M, int Start, int Koniec) {
     }
     Dist[Start] = 0;                        // Odległość od samego siebie to 0
 
-    for (int i = 0; i < MSize - 1; ++i) {   // MSize - 1, bo tyle jest możliwych połączeń
-        int u = MinDist(Dist, SptSet, MSize);
-        SptSet[u] = true;                   // True dla najkrótszego połączenia od Start
+    for (int i = 0; i < MSize - 1; ++i) {
+        int u = MinDist(Dist, SptSet, MSize);   // Zwraca indeks na najkrótszą drogę
+        SptSet[u] = true;                       // True dla najkrótszego połączenia od Start
         for (int v = 0; v < MSize; ++v)
-      // Jeśli   false        u i v połączone       odległość != inf      odległość od u + długość (u,v) mniejsza od odległości od v
+      // Jeśli   false        u i v połączone       odległość != inf      odległość od u + długość (u,v) < dist(v)
             if (!SptSet[v] && M.AreAdjacent(u,v) && Dist[u] != INT_MAX && Dist[u] + M.GetEdgeLength(u,v) < Dist[v])
                 Dist[v] = Dist[u] + M.GetEdgeLength(u,v);  // Odl do v + waga kolejnego połączenia
     }
