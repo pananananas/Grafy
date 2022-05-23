@@ -71,7 +71,6 @@ class AdjacencyList {
     int IlKrawedzi;
     VertexL  *VertArr;
     EdgeL    *EdgeArr;
-//    AdjPoint **AdjList;
     EdgeL    ***AdjList;
 
 public:
@@ -105,11 +104,11 @@ public:
                 AdjList[i][j] = NULL;
         }
         
-        std:: uniform_int_distribution<std::mt19937::result_type> dist7(1,Rozmiar*10);
+        std:: uniform_int_distribution<std::mt19937::result_type> dist7(1,Rozmiar);
         for (int i = 0; i < Rozmiar; ++i)                   // Wypełniam wierzchołki
             VertArr[i] = VertexL(dist7(rng), &VertArr[i]);
         
-        std:: uniform_int_distribution<std::mt19937::result_type> dist8(1,IlKrawedzi*10);
+        std:: uniform_int_distribution<std::mt19937::result_type> dist8(1,IlKrawedzi);
         for (int i = 0; i < Rozmiar; ++i)                   // Tworzę połączenie tam gdzie powinno być
         for (int j = 0; j < Rozmiar-1; ++j) {
             if (j-i >= 1 &&  TrueFalse[KrawTmp] != 0) {     // Jest połączenie, wypełniam krawedzie i listę
