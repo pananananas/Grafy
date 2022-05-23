@@ -35,7 +35,7 @@
 		25EE88F72828351600176E13 /* grafy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = grafy; sourceTree = BUILT_PRODUCTS_DIR; };
 		25EE88FA2828351600176E13 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		25EE8904282835F200176E13 /* VertexList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexList.cpp; sourceTree = SOURCE_ROOT; };
-		25EE8905282835F200176E13 /* VertexList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = VertexList.hpp; path = grafy/inc/VertexList.hpp; sourceTree = SOURCE_ROOT; };
+		25EE8905282835F200176E13 /* Include.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Include.hpp; path = grafy/inc/Include.hpp; sourceTree = SOURCE_ROOT; };
 		25EE8907282835F800176E13 /* EdgeList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeList.cpp; sourceTree = "<group>"; };
 		25EE8908282835F800176E13 /* EdgeList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EdgeList.hpp; sourceTree = "<group>"; };
 		25EE890A282835FE00176E13 /* IncidentList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IncidentList.cpp; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		25EE8903282835D200176E13 /* inc */ = {
 			isa = PBXGroup;
 			children = (
-				25EE8905282835F200176E13 /* VertexList.hpp */,
+				25EE8905282835F200176E13 /* Include.hpp */,
 				25EE8914282BC3FE00176E13 /* VertexMatrix.hpp */,
 				25EE8908282835F800176E13 /* EdgeList.hpp */,
 				25EE8917282BC41200176E13 /* EdgeMatrix.hpp */,

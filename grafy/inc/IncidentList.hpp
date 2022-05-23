@@ -1,7 +1,7 @@
 #ifndef IncidentList_hpp
 #define IncidentList_hpp
-#include "EdgeList.hpp"
-#include <random>
+#include "Include.hpp"
+
 struct AdjPoint;
 
 class AdjacencyList {
@@ -31,7 +31,7 @@ class AdjacencyList {
         
         EdgeL() {};
         EdgeL(int W, EdgeL *ad) { Wartosc = W; Adres = ad; };
-        EdgeL(EdgeL *ad, int W, VertexL *w, VertexL *v){ Start = w; Koniec = v;Wartosc = W; Adres = ad; };
+        EdgeL(int W, EdgeL *ad, VertexL *w, VertexL *v){ Start = w; Koniec = v;Wartosc = W; Adres = ad; };
         VertexL* IsOpposite(VertexL *v) {
             if (Start == v)     return Koniec;
             else                return Start;
@@ -97,20 +97,23 @@ public:
         
         this -> VertArr  =  new VertexL[Rozmiar];
         this -> EdgeArr  =  new EdgeL[IlKrawedzi];
-        
-        this -> AdjList =  new EdgeL**[Rozmiar];
+        this -> AdjList  =  new EdgeL**[Rozmiar];
         
         for (int i = 0; i < Rozmiar; ++i) {                   // Tworzę listę i wypełniam ją Nullami
             AdjList[i] = new EdgeL*[Rozmiar-1];
             for (int j = 0; j < Rozmiar-1; ++j)
                 AdjList[i][j] = NULL;
         }
-            
         
+        std:: uniform_int_distribution<std::mt19937::result_type> dist7(1,Rozmiar*10);
+        for (int i = 0; i < Rozmiar; ++i)                   // Wypełniam wierzchołki
+            VertArr[i] = VertexL(dist7(rng), &VertArr[i]);
+        
+        std:: uniform_int_distribution<std::mt19937::result_type> dist8(1,IlKrawedzi*10);
         for (int i = 0; i < Rozmiar; ++i)                   // Tworzę połączenie tam gdzie powinno być
         for (int j = 0; j < Rozmiar-1; ++j) {
-            if (j-i >= 1 &&  TrueFalse[KrawTmp] != 0) {     // Jest połączenie, wypełniam krawedzie i macierz
-                EdgeArr[KrawTmp] = EdgeL(rand()%IlKrawedzi*10, &EdgeArr[i]); //, &VertArr[j], &VertArr[i]);
+            if (j-i >= 1 &&  TrueFalse[KrawTmp] != 0) {     // Jest połączenie, wypełniam krawedzie i listę
+                EdgeArr[KrawTmp] = EdgeL(dist8(rng), &EdgeArr[i], &VertArr[j], &VertArr[i]);
                 AdjList[i][j]  = &EdgeArr[KrawTmp];
             }
             ++KrawTmp;
