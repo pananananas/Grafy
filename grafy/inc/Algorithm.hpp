@@ -46,7 +46,6 @@ int DijkstraM(AdjacencyMatrix M, int Start, int Koniec) {
                 Dist[v] = Dist[u] + M.GetEdgeLength(u,v);  // Odl do v + waga kolejnego połączenia
     }
 //    WyswietlDrogi(Dist, MSize);
-    
     return Dist[Koniec-1];  // Zwracam odległość od Start do Koniec
 }
 
