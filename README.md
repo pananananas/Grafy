@@ -1,6 +1,6 @@
 # Implementacja i szukanie najkrótszej drogi w grafie
 
-Implementacja grafów zdefiniowanych przez macierz oraz listę sąsiedztwa (bez użycia biblioteki standardowej ;-;) oraz implementacja algorytmu Dijkstry szukającej najkrótszej drogi w grafie.
+Implementacja grafów zdefiniowanych przez macierz oraz listę sąsiedztwa, bez użycia biblioteki standardowej ;-; oraz implementacja algorytmu Dijkstry szukającej najkrótszej drogi w grafie.
 
 ## Wnioski z wykonanych testów wydajnościowych algorytmu
 
